@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Counter</title>
+</head>
+<body>
+  <p><span id="count">2</span></p>
+
+  <button class="btn btn-1" id="btn1">button 1</button>
+  <button class="btn btn-1" id="btn2">button 2</button>
+  <button class="btn btn-1" id="btn3">button 3</button>
+  <button class="btn btn-1" id="btn4">button 4</button>
+
+  <script>
+    // Common function - button toggle করার জন্য
+    function toggleButton(buttonElement) {
+      const countElement = document.getElementById('count');
+      let currentCount = parseInt(countElement.innerText);
+
+      // toggle করলে ক্লাস add হলে true, remove হলে false দিবে
+      const isActive = buttonElement.classList.toggle('active');
+
+      if (isActive) {
+        countElement.innerText = currentCount + 1;
+      } else {
+        countElement.innerText = currentCount - 1;
+      }
+    }
+
+    // সব btn-1 class এর button গুলো select করি
+    const buttons = document.querySelectorAll('.btn-1');
+
+    // for...of loop দিয়ে সব button এ event listener যোগ করি
+    for (const button of buttons) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleButton(this);
+      });
+    }
+  </script>
+</body>
+</html>
