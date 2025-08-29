@@ -15,8 +15,6 @@ function updateCount(element,amount){
     element.innerText = currentCount;
 }
 
-
-
 // all card calls 
 const cards = document.querySelectorAll('.card')
 
